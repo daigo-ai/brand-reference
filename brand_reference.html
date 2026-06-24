@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ブランド相場">
+<title>ブランドネクタイ相場一覧</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;background:#F5F4F0;color:#1a1a18;font-size:14px;padding-bottom:3rem}
+header{background:#1a1a18;color:#fff;padding:14px 16px 12px;position:sticky;top:0;z-index:10}
+header h1{font-size:15px;font-weight:600;letter-spacing:.02em}
+header p{font-size:11px;color:#999;margin-top:2px}
+.filter-bar{display:flex;gap:6px;padding:10px 12px;overflow-x:auto;background:#F5F4F0;border-bottom:.5px solid #ddd;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter-btn{flex-shrink:0;padding:5px 13px;border-radius:20px;border:.5px solid #ccc;background:#fff;font-size:12px;color:#555;cursor:pointer;white-space:nowrap}
+.filter-btn.active{background:#1a1a18;color:#fff;border-color:#1a1a18}
+.section-label{font-size:10px;font-weight:700;color:#888;letter-spacing:.1em;text-transform:uppercase;padding:16px 14px 6px}
+.group-block{background:#fff;border-top:.5px solid #e5e3dd;border-bottom:.5px solid #e5e3dd;margin-top:2px}
+.card{border-bottom:.5px solid #eeece6;padding:14px 14px 12px}
+.card:last-child{border-bottom:none}
+.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px}
+.brand-name{font-size:14px;font-weight:600;line-height:1.3}
+.brand-name small{display:block;font-size:10px;font-weight:400;color:#999;margin-top:1px;letter-spacing:.04em}
+.price-badge{flex-shrink:0;font-size:12px;font-weight:700;color:#1a4a2e;background:#e6f2eb;padding:3px 8px;border-radius:5px;white-space:nowrap}
+.section-desc{font-size:12px;color:#555;line-height:1.6;margin-bottom:10px}
+.best3{background:#faf9f6;border-radius:8px;padding:10px 12px;margin-bottom:10px}
+.best3-title{font-size:10px;font-weight:700;color:#999;letter-spacing:.08em;margin-bottom:7px}
+.best3-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:12px;line-height:1.4}
+.best3-item:last-child{margin-bottom:0}
+.rank-num{flex-shrink:0;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.r1{background:#C8A84B;color:#fff}
+.r2{background:#8B8B8B;color:#fff}
+.r3{background:#A87B5A;color:#fff}
+.rank-text{color:#333}
+.rank-text strong{display:block;font-weight:600;color:#1a1a18;font-size:12px}
+.caution{font-size:11px;color:#a05c00;background:#fff8ee;border-left:2px solid #e8a020;padding:5px 8px;border-radius:0 4px 4px 0;margin-bottom:10px;line-height:1.5}
+.links{display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{display:inline-flex;align-items:center;gap:3px;font-size:11px;color:#1a6e3c;background:#f0faf4;border:.5px solid #b8dfca;border-radius:5px;padding:4px 8px;text-decoration:none;white-space:nowrap}
+.link-btn.auth{color:#7a4f1a;background:#fdf6ec;border-color:#e8cfa0}
+.tier-s{border-left:3px solid #C8A84B}
+.tier-a{border-left:3px solid #8B8B8B}
+.tier-b{border-left:3px solid #A87B5A}
+.tier-h{border-left:3px solid #6C8EBF}
+
+.retail-row{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.retail-label{font-size:10px;color:#999;white-space:nowrap}
+.retail-price{font-size:12px;font-weight:600;color:#8B4513}
+.retail-note{font-size:10px;color:#bbb;font-style:italic}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔍 ブランドネクタイ相場</h1>
+  <p>仕入れ判断リファレンス — variousstore</p>
+</header>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filter('all',this)">すべて</button>
+  <button class="filter-btn" onclick="filter('high',this)">高単価</button>
+  <button class="filter-btn" onclick="filter('mid',this)">中単価</button>
+  <button class="filter-btn" onclick="filter('niche',this)">穴場</button>
+</div>
+
+<!-- ===== 高単価 ===== -->
+<div class="section-label" id="label-high">高単価・高回転型（10選）</div>
+<div class="group-block" id="g-high">
+
+<div class="card tier-s" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">Hermès（エルメス）<small>HERMÈS</small></div>
+    <div class="price-badge">¥9,000〜16,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥30,000〜45,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">圧倒的な指名検索数を誇るネクタイ界の最高峰。「H柄の総織り（ファソネ）」は一目でエルメスとわかり、ビジネス・ギフト問わず即売れ。状態さえよければ値下げ不要で売れることも珍しくない。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ネイビー × H織り（ファソネ）総柄</strong>鉄板中の鉄板。一目でエルメスとわかる総織りは検索需要も最高峰</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ブルー × シェーヌダンクル（鎖）柄</strong>鎖モチーフがさりげなくエレガント。ビジネスシーンで人気の定番デザイン</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ボルドー × Hロゴ・ドット混じり</strong>大人っぽい赤系は贈答用にも強い。フォーマルなシーンに映える</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%A8%E3%83%AB%E3%83%A1%E3%82%B9+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=HERMES+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81+%E7%A2%BA%E8%AA%8D" target="_blank">🔐 裏面・タグ</a>
+  </div>
+</div>
+
+<div class="card tier-s" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">Gucci（グッチ）<small>GUCCI</small></div>
+    <div class="price-badge">¥8,500〜15,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥33,000〜45,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">若年層から絶大な人気。GG柄が全面に出たものが高回転。現行に近い「ビー（蜂）刺繍」入りはさらに高値で動く。ブラックベースは汎用性が高くビジネス・冠婚葬祭両対応で需要が途切れない。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブラック × GGパターン総柄</strong>汎用性No.1。慶弔どちらにも使えると需要が広い</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × GG柄 または ビー（蜂）刺繍</strong>現行寄りのデザインは特に若い世代に刺さる</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>レッド × GGロゴ混じり総柄</strong>華やかさがギフト需要を押し上げる。成人式・披露宴前に動く</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%B0%E3%83%83%E3%83%81+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=GUCCI+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面・タグ</a>
+  </div>
+</div>
+
+<div class="card tier-s" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">Louis Vuitton（ルイ・ヴィトン）<small>LV</small></div>
+    <div class="price-badge">¥9,500〜16,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥55,000〜75,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">モノグラムとダミエのジャカード織りが鉄板。暗色（チャコール・ネイビー）ベースはビジネスシーンで嫌味がなく、最も高額取引されやすい。モノグラムの「クラヴァット」モデルは指名検索が強い。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>チャコール × モノグラム総柄（クラヴァット）</strong>LVの代名詞。暗色×モノグラムはビジネス実需とコレクター両方に刺さる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × ダミエ柄</strong>チェック感が控えめでスーツになじみやすく万人受け</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ブラウン × モノグラムオブリーク</strong>ブラウン系は季節問わず根強い人気。秋冬に特に動く</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%AB%E3%82%A4%E3%83%B4%E3%82%A3%E3%83%88%E3%83%B3+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Louis+Vuitton+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面・タグ</a>
+  </div>
+</div>
+
+<div class="card tier-a" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">Burberry（バーバリー）<small>BURBERRY</small></div>
+    <div class="price-badge">¥8,500〜14,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥28,000〜45,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">ベージュのノバチェック総柄は一撃必殺。現行ライン（LONDON / ENGLAND表記）の黒・白タグが高値をつける。旧ライン「Burberrys」は低めに出るため注意。タグの年代確認が利益の分岐点。</div>
+  <div class="caution">⚠️ 「Burberrys」（旧表記）は現行「BURBERRY LONDON」より評価が下がる。タグを必ず確認</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ベージュ × ノバチェック総柄</strong>バーバリーといえばこれ。他の色より1〜2割高く動く</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × ノバチェック（細ライン）</strong>ビジネス向けの落ち着いた配色。30〜50代の実需に強い</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ブラック × 無地またはチェック薄め</strong>冠婚葬祭用途の需要。汎用性でジワジワと売れる</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%90%E3%83%BC%E3%83%90%E3%83%AA%E3%83%BC+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=BURBERRY+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81+LONDON+ENGLAND" target="_blank">🔐 裏面・タグ</a>
+  </div>
+</div>
+
+<div class="card tier-a" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">YSL（サンローラン）<small>YVES SAINT LAURENT</small></div>
+    <div class="price-badge">¥8,000〜13,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥35,000〜55,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">カサンドラロゴ（YSL刺繍）のナロータイが若い世代に大人気。成人式・披露宴の季節に検索が急増し、出品後数時間で売れることも。ただしYSLは世代によって相場が大きく違う。</div>
+  <div class="caution">⚠️ 現行「SAINT LAURENT PARIS」¥9,000〜11,300 / ヴィンテージ「YVES SAINT LAURENT」¥350〜7,900 / YSLロゴのみ¥350〜2,300。タグ確認が最重要</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブラック × カサンドラロゴ刺繍ナロータイ（現行）</strong>若年層の圧倒的1位。成人式前後に相場が上振れる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × SAINT LAURENT PARIS（現行）</strong>現行ラインのシンプルな配色は幅広い年齢層に対応</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>シルバー・グレー × YSLロゴ（ヴィンテージ）</strong>安値帯だが回転は速い。ヴィンテージ好き古着層が買う</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%B5%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%B3+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=YSL+Saint+Laurent+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面・タグ</a>
+  </div>
+</div>
+
+<div class="card tier-a" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">Vivienne Westwood（ヴィヴィアン）</div>
+    <div class="price-badge">¥8,000〜12,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥16,000〜25,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">「オーブ（地球儀）」マークの主張が激しいほど高値がつく傾向。若い世代の自己表現アイテムとして機能し、冬場（11〜2月）に相場が暴騰するシーズナリティがある。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ワインレッド × オーブ刺繍（大きめ）</strong>主張強めが高値の鉄則。ビビッドな赤系は若い世代に即刺さる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ブラック × オーブ総柄またはワンポイント</strong>汎用性の高いブラックベースは通年で安定して動く</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>グレー × タータンチェック＋オーブ</strong>秋冬のウール系。クリスマスシーズンに伸びる</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%B4%E3%82%A3%E3%83%B4%E3%82%A3%E3%82%A2%E3%83%B3+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Vivienne+Westwood+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面・タグ</a>
+  </div>
+</div>
+
+<div class="card tier-a" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">Christian Dior（ディオール）</div>
+    <div class="price-badge">¥8,000〜14,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥35,000〜60,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">ヴィンテージの「トロッター（Diorロゴ総柄）」は古着トレンドの恩恵を受けて需要が拡大中。現行の「オブリーク」は2万円超の超高値も狙える。同じディオールでも柄・年代で相場が3〜4倍変わる。</div>
+  <div class="caution">⚠️ 旧ロゴ「Christian Dior」と現行「DIOR」でデザインと相場が大きく異なる。要確認</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ネイビー × トロッター柄（ヴィンテージ）</strong>古着MIX需要が後押し。状態良ければ即決が多い</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ブラック × オブリーク（現行）</strong>高値の頂点。セカストで出会えたら確実に抑えたい</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>グレー × 小紋・ドット（現行ライン）</strong>落ち着いた配色でビジネス実需に対応。安定した回転</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%87%E3%82%A3%E3%82%AA%E3%83%BC%E3%83%AB+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Christian+Dior+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面・タグ</a>
+  </div>
+</div>
+
+<div class="card tier-a" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">Fendi（フェンディ）</div>
+    <div class="price-badge">¥8,500〜13,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥35,000〜55,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">「ズッカ柄（FF総柄）」の一択。立体感ある織り生地は光沢が美しく出るため写真映えがよく、メルカリでは視覚で購買意欲を引き出せる。ブラウン系が最も動く。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブラウン × ズッカ柄（FF総柄）</strong>フェンディの代名詞。立体感ある織りは写真映え◎で即決率が高い</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ブラック × ズッカ柄</strong>ビジネス対応の暗色版。汎用性が高く安定した需要</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ネイビー × FF小紋・ロゴ散らし</strong>落ち着いた配色でフォーマルシーンに対応。30〜40代に人気</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%95%E3%82%A7%E3%83%B3%E3%83%87%E3%82%A3+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=FENDI+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面・タグ</a>
+  </div>
+</div>
+
+<div class="card tier-s" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">Stefano Ricci（ステファノリッチ）</div>
+    <div class="price-badge">¥10,000〜18,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥60,000〜120,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">ネクタイ界の王者。職人技による「プリーツ加工（ひだ）」があるものは1万円超の即決が容易。セカストで出会えること自体が稀なため、見つけたら即仕入れ判断でよいレベル。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブルー × プリーツ加工（ひだ入り）</strong>最高峰の証。プリーツがあれば色問わず高値がつく</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>パープル × シルク無地・プリーツあり</strong>希少カラーが高値を後押し。コレクター指名買いが多い</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ネイビー × 小紋または無地（プリーツなし）</strong>プリーツなし版でも他ブランドより高値で動く底力がある</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%B9%E3%83%86%E3%83%95%E3%82%A1%E3%83%8E%E3%83%AA%E3%83%83%E3%83%81+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Stefano+Ricci+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E7%9C%9F%E6%AD%A3%E5%93%81+%E3%83%97%E3%83%AA%E3%83%BC%E3%83%84" target="_blank">🔐 裏面・確認</a>
+  </div>
+</div>
+
+<div class="card tier-s" data-group="high">
+  <div class="card-head">
+    <div class="brand-name">Tie Your Tie（タイユアタイ）</div>
+    <div class="price-badge">¥9,000〜15,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥25,000〜45,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">芯地を一切使わず生地を7つに折る「セッテピエゲ」仕様がマニアに高値で刺さる。高級セレクト層の指名買いが多く、売れるまでは時間がかかっても値下げ不要で通せることが多い。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>アースカラー（テラコッタ・カーキ）× セッテピエゲ無地</strong>マニア指名買いの王道。セッテピエゲと明記するだけで問い合わせが増える</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ブラウン × 千鳥格子・ハウンドトゥース</strong>秋冬の英国調コーデに合わせる層に刺さる</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ネイビー × グレナディン織り無地</strong>グレナディンの凸凹感が好きな人の指名検索ワードになる</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=Tie+Your+Tie+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Tie+Your+Tie+%E8%A3%8F%E9%9D%A2+%E3%82%BB%E3%83%83%E3%83%86%E3%83%94%E3%82%A8%E3%82%B2+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 構造確認</a>
+  </div>
+</div>
+
+</div>
+
+<!-- ===== 中単価 ===== -->
+<div class="section-label" id="label-mid">中単価・高回転型（10選）</div>
+<div class="group-block" id="g-mid">
+
+<div class="card tier-b" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Paul Smith（ポール・スミス）</div>
+    <div class="price-badge">¥3,500〜6,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥12,000〜18,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">出品後最も早く売れるブランドのひとつ。表はシンプルに見えて、裏地が花柄やマルチストライプになっている「隠れた遊び心」タイプが飛び抜けて人気。30代を中心に普段使いとして根強い需要がある。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ネイビー × 表：無地 / 裏地：マルチストライプ</strong>「裏地見せ」文化にハマる定番。ポールスミスらしさの象徴</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>グレー × 花柄（表に小花・ライン入り）</strong>女性へのプレゼント用途でも選ばれやすい珍しいポジション</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>バーガンディ × レジメンタルストライプ</strong>ベーシックなのに外さない。ビジネス用の実需として通年で動く</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%9D%E3%83%BC%E3%83%AB%E3%82%B9%E3%83%9F%E3%82%B9+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Paul+Smith+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0" target="_blank">🔐 裏面</a>
+  </div>
+</div>
+
+<div class="card tier-b" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Dunhill（ダンヒル）</div>
+    <div class="price-badge">¥3,000〜5,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥15,000〜22,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">40〜50代ビジネスマンの仕事用として安定した実需がある。バブル期の派手な柄は安値になりがちなので避けること。定番の細かな「dマーク総柄」か「レジメンタル」を狙うのが鉄則。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ネイビー × 細かなdマーク総柄</strong>ビジネス実需の王道。40〜50代に安定して刺さる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>グレー × レジメンタルストライプ</strong>冠婚葬祭にも対応できる汎用性で通年需要がある</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>バーガンディ × 小紋・ドット</strong>落ち着いた赤系は慶事に対応。プレゼント用途も拾う</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%80%E3%83%B3%E3%83%92%E3%83%AB+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Dunhill+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-b" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Brooks Brothers（ブルックスブラザーズ）</div>
+    <div class="price-badge">¥3,500〜5,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥12,000〜18,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">アメトラ・アイビー好きの固定ファンが常に検索している。「No.1ストライプ（右下がりのレジメンタル）」は流行に左右されず長年動き続ける安定感がある。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>バーガンディ × レジメンタル（右下がり）</strong>BBの代名詞・No.1ストライプ。アイビー好きの指名買い</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × ドット・小紋</strong>ビジネス用途の定番。広い年齢層に対応する安定の動き</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>グリーン × タータンチェック（秋冬）</strong>アメトラらしい季節感。秋以降に相場が上振れる</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%96%E3%83%AB%E3%83%83%E3%82%AF%E3%82%B9%E3%83%96%E3%83%A9%E3%82%B6%E3%83%BC%E3%82%BA+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Brooks+Brothers+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-b" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Salvatore Ferragamo（フェラガモ）</div>
+    <div class="price-badge">¥3,800〜6,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥25,000〜40,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">フェラガモ独自の「可愛いアニマル総柄（鳥・豹・馬）」や「ガンチーニ柄」はコレクターが多く、多少派手でも高値で指名買いされる。派手＝安いの法則が他ブランドより通用しない。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>イエロー・ブルー × アニマル総柄（鳥・馬）</strong>フェラガモ最大の特徴。コレクター指名買いで相場が安定</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × ガンチーニ柄</strong>定番ロゴ柄は購入者が迷いにくく即決率が高い</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>レッド × アニマル混じり総柄</strong>派手な赤×動物柄でもフェラガモなら高値がつく。他ブランドと差別化</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%95%E3%82%A7%E3%83%A9%E3%82%AC%E3%83%A2+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Ferragamo+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-b" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Ralph Lauren（ラルフローレン）</div>
+    <div class="price-badge">¥3,500〜6,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥14,000〜22,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">ポロマーク総柄や刺繍が強い。秋冬シーズンはシルクだけでなくウール・ツイード素材が激アツ。「アメリカントラッド」を体現するため、ラルフを求める固定層の回転が速い。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブラウン × ポロプレイヤー刺繍・ウール素材</strong>秋冬の目玉。ウール素材のラルフは相場が1〜2割上振れる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × ポロマーク総柄（シルク）</strong>通年対応の定番。アメトラ好きの実需で安定して回転</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>グリーン × チェック・ペイズリー</strong>季節感があり秋以降に伸びる。プレゼント用途にも対応</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%A9%E3%83%AB%E3%83%95%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Ralph+Lauren+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0" target="_blank">🔐 裏面</a>
+  </div>
+</div>
+
+<div class="card tier-b" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Emporio Armani（エンポリオアルマーニ）</div>
+    <div class="price-badge">¥3,500〜5,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥18,000〜28,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">若手ビジネスマンが「手頃なステータス」として検索する。「イーグルロゴ」がワンポイントまたは総柄のものが動く。ジョルジオ（黒ラベル）よりも相場は低いが回転が速いのが強み。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>シルバー・グレー × イーグルロゴ総柄</strong>モノトーンのスタイリッシュさが若手に直撃。即決率が高い</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × イーグルワンポイント＋無地</strong>ビジネスで毎日使いたい層の実需。地味だが回転が速い</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ブラック × ストライプ＋ロゴ</strong>汎用性の高いブラックベース。新社会人の入社前に動く</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%A8%E3%83%B3%E3%83%9D%E3%83%AA%E3%82%AA+%E3%82%A2%E3%83%AB%E3%83%9E%E3%83%BC%E3%83%8B+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Emporio+Armani+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-b" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Givenchy（ジバンシー）</div>
+    <div class="price-badge">¥3,000〜5,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥20,000〜35,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">「4Gロゴ」が織り込まれたシャープな現行デザインが売れ筋。注意点はオールドな幾何学模様——これは安値にしかならないので仕入れでスルー必須。現行か否かの見極めが利益の分岐点。</div>
+  <div class="caution">⚠️ 旧デザインの幾何学・レトロ柄は安値。現行「4Gロゴ」との見極めが重要</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブラック × 4Gロゴ総柄（現行）</strong>シャープな黒×ロゴが若手ビジネスマンに刺さる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × 4Gロゴ＋ストライプ</strong>ビジネス向けの落ち着いた配色。30代の実需として安定</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>グレー × 4Gロゴ散らし</strong>スーツになじむ無彩色系。汎用性で通年コンスタントに動く</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%B8%E3%83%90%E3%83%B3%E3%82%B7%E3%83%BC+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Givenchy+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-b" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Chanel（シャネル）</div>
+    <div class="price-badge">¥6,000〜9,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥40,000〜60,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">「ococマーク」がさりげなく配置されているものが高値。ヴィンテージ需要も高く、ブランドの強さとレア感が組み合わさって安定して売れる。プレゼント用途の買い手も多い。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ネイビー × ココマーク・チェーン柄</strong>シャネルの顔。さりげないロゴが上品で即決が多い</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ブラック × ツイード風・ロゴ散らし（ヴィンテージ）</strong>ヴィンテージ需要とプレゼント需要が重なり高値安定</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ホワイト・オフホワイト × ロゴ小紋</strong>珍しいカラーで希少感が出る。状態良ければ早く動く</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%B7%E3%83%A3%E3%83%8D%E3%83%AB+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=CHANEL+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-b" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Coach（コーチ）</div>
+    <div class="price-badge">¥2,800〜4,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥12,000〜18,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">「Cマーク（シグネチャー）」総柄の一択。アウトレット流通も多いが知名度が抜群なため、安価に仕入れて低価格帯で爆速回転させる「数の論理」が機能しやすいブランド。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ネイビー × Cシグネチャー総柄</strong>知名度×汎用性の最強コンビ。安くても利益が乗るなら即仕入れ</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ブラウン × Cシグネチャー総柄</strong>ブラウン系は秋冬需要で底上げ。低価格帯でも回転速い</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ブラック × ストライプ＋ロゴ</strong>新社会人需要。3〜4月前後に仕込んでおくと動きが速い</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%B3%E3%83%BC%E3%83%81+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=COACH+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-a" data-group="mid">
+  <div class="card-head">
+    <div class="brand-name">Giorgio Armani（ジョルジオアルマーニ）</div>
+    <div class="price-badge">¥4,000〜7,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥22,000〜45,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">最高峰ラインの「黒ラベル」が狙い目。独特の織り組織によるソリッド（無地）タイは「大人のインテリジェンス」として売れる。エンポリオより相場は高く、黒ラベルと確認できれば積極的に仕入れてよい。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>チャコール・グレー × 黒ラベル無地</strong>「黒ラベル」の4文字で相場が上がる。確認必須</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × 黒ラベル・微光沢無地</strong>光沢感ある素材感がビジネス上級者に刺さる</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ブラック × 黒ラベル・ジャカード無地</strong>冠婚葬祭にも使えると需要が広がる万能品</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%B8%E3%83%A7%E3%83%AB%E3%82%B8%E3%82%AA+%E3%82%A2%E3%83%AB%E3%83%9E%E3%83%BC%E3%83%8B+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Giorgio+Armani+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E9%BB%92%E3%83%A9%E3%83%99%E3%83%AB+%E8%A3%8F%E9%9D%A2" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+</div>
+
+<!-- ===== 穴場 ===== -->
+<div class="section-label" id="label-niche">玄人ウケ・穴場型（10選）</div>
+<div class="group-block" id="g-niche">
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">Franco Bassi（フランコバッシ）</div>
+    <div class="price-badge">¥4,000〜7,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥18,000〜28,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">BEAMS F等セレクトショップの定番として知る人ぞ知るブランド。リユース店では価値を知らないスタッフが安値で並べることが多いため、仕入れ単価が抑えやすい。感度の高いビジネスマンが常に狙っている。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブラウン × 大柄ストライプ（メランジ素材）</strong>フランコバッシらしさの象徴。感度の高い層が即決する</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × 小紋・ダイヤ柄（シルク）</strong>ビジネスにも使えてコスパ感があると評価される</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>グリーン・アースカラー × 総柄ジャカード</strong>秋冬の配色トレンドに合致して動く。個性的だが刺さる層に強い</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B3%E3%83%90%E3%83%83%E3%82%B7+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Franco+Bassi+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面</a>
+  </div>
+</div>
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">Drake's（ドレイクス）</div>
+    <div class="price-badge">¥4,500〜8,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥20,000〜35,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">英国製。「50オンスシルク」「グレナディン織り」など、ネクタイの質を重視する層の指名検索キーワードが超強力。知る人には絶対に分かる本物感が高値を支える。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>グリーン・ネイビー × グレナディン織り無地</strong>「グレナディン」と出品タイトルに入れるだけで検索ヒット率が上がる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ブラウン × 50オンスシルク・ドット</strong>英国ドレスコードに忠実な配色。マニア指名買いが強い</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>バーガンディ × ロールドエッジ・無地</strong>手縫いのロールドエッジも付加価値。状態確認して出品文に明記する</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%89%E3%83%AC%E3%82%A4%E3%82%AF%E3%82%B9+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Drake%27s+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">E.Marinella（マリネッラ）</div>
+    <div class="price-badge">¥5,000〜9,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥25,000〜40,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">ナポリを代表する世界最高峰タイ。「マリネッラ」のブランド力だけで、エグゼクティブ実需層へ高単価でアプローチ可能。セカストで見かけることは稀なため、出会えたら積極的に狙う価値がある。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ナポリブルー × ピンドット</strong>マリネッラの定番配色。「ナポリ製」と明記すると高値が引き出せる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × 小紋・フォラール柄</strong>エグゼクティブ向けの落ち着いた柄。ビジネス実需として確実に動く</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ボルドー × ストライプ（レジメンタル）</strong>クラシックな配色がフォーマルシーンに対応。贈答用途も拾う</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%9E%E3%83%AA%E3%83%8D%E3%83%83%E3%83%A9+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=E.Marinella+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">Holliday &amp; Brown（ホリデー&amp;ブラウン）</div>
+    <div class="price-badge">¥4,500〜8,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥20,000〜35,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">英国アーカイブの幾何学柄が有名。おしゃれ上級者が私服用・オフィスカジュアル用として探しているため強気価格が通る。一般的に「古い幾何学柄＝安値」だが、このブランドは例外。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブラウン × レトロ幾何学（アーカイブ柄）</strong>他では安値になる幾何学柄がここでは高値。ブランド力が逆転させる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × 大柄ストライプ・英国調</strong>英国ドレスコードを意識した層に刺さる。ビジネスカジュアルにも対応</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>グリーン・マスタード × 花・植物モチーフ</strong>アート感のある配色が古着MIX層に人気。個性で高値が取れる</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%9B%E3%83%AA%E3%83%87%E3%83%BC%E3%83%96%E3%83%A9%E3%82%A6%E3%83%B3+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Holliday+Brown+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">Fairfax（フェアファクス）</div>
+    <div class="price-badge">¥2,500〜4,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥8,000〜15,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">リユース店で300円以下でよく放置されているが、メルカリでは「安心の日本製」「百貨店購入」として実需層に手堅く回る。仕入れ単価が極端に低いため、利益率が高い穴場ブランド。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ネイビー × バスケット織り無地</strong>日本製×百貨店品質の安心感で実需がある。シンプルで万人受け</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>グレー × レジメンタルストライプ</strong>ビジネス使いに徹した需要。40〜50代の買い替え用として動く</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ボルドー × 小紋・ドット</strong>価格帯が手頃なため、贈答用でもカジュアルに選ばれやすい</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%95%E3%82%A7%E3%82%A2%E3%83%95%E3%82%A1%E3%82%AF%E3%82%B9+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Fairfax+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2" target="_blank">🔐 裏面</a>
+  </div>
+</div>
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">John Comfort（ジョンコンフォート）</div>
+    <div class="price-badge">¥3,800〜6,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥15,000〜25,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">英国の本格タイ。独特のひねりの効いたモチーフ柄（傘・動物・ユーモラスな絵柄）が多く、Vゾーンの「ハズし」アイテムとして古着MIX層にもウケが良い。柄が個性的なほど高値がつく傾向。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ボルドー × ユーモラスなモチーフ総柄（傘・動物）</strong>「ハズし」の需要にピンポイントで刺さる。個性が価値</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>グリーン × 英国調モチーフ・ハウンドトゥース</strong>秋冬の古着MIXコーデ需要。海外からの購入も一定数ある</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ネイビー × ストライプ（ベーシック版）</strong>個性的柄とは別に無難な柄も動く。ビジネス実需として安定</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=John+Comfort+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2" target="_blank">🔐 裏面</a>
+  </div>
+</div>
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">Luigi Borrelli（ルイジボレッリ）</div>
+    <div class="price-badge">¥4,000〜7,000</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥25,000〜45,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">シャツの最高峰ブランドとして有名なため、ネクタイにもブランド名の強さが波及する。「ボレッリ」のネームバリューでノットの美しさを知る層が即決。リユース店では過小評価されがちな穴場。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ネイビー × レジメンタル・ドット（シルク）</strong>「ボレッリ」の名前だけで指名買いが集まる。シンプルな柄が一番動く</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ブルー × 小紋・フォラール柄</strong>ナポリ風の配色でエグゼクティブ層に刺さる</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>バーガンディ × ストライプ（手縫いあり）</strong>手縫い仕様が確認できれば出品文に必ず明記。付加価値で高値が取れる</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%AB%E3%82%A4%E3%82%B8%E3%83%9C%E3%83%AC%E3%83%83%E3%83%AA+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Luigi+Borrelli+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">Tomorrowland（トゥモローランド）</div>
+    <div class="price-badge">¥2,800〜4,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥10,000〜18,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">セレクトオリジナル（セレオリ）随一の知名度。オフィスカジュアル用の「ニットタイ」が非常に回転が早く狙い目。通常のシルクタイより付加価値があり、素材名を出品タイトルに入れると反応がよい。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>チャコール × シルクニットタイ</strong>ニットタイ需要の最大手。「ニットタイ」タイトル記載で検索ヒット率が上がる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × ニットタイ</strong>ビジネスカジュアルの定番配色。30代の実需として安定して動く</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>グレー × シルク無地（セレオリ）</strong>ニット以外の無地シルクも知名度で売れる。状態良ければ即決が多い</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%83%88%E3%82%A5%E3%83%A2%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Tomorrowland+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">Ermenegildo Zegna（ゼニア）</div>
+    <div class="price-badge">¥4,500〜8,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥25,000〜50,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">最高峰ラインの「クチュール（Couture）」タグがついたものは別格。リユース店で安ければ確実に利益が抜けるお宝。タグのラインを必ず確認する——ラインによって相場が倍以上変わる。</div>
+  <div class="caution">⚠️ 「Couture」「Quindici」等の上位ラインと廉価ラインで相場が大きく異なる。タグのライン名を確認すること</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブルー × 小紋・幾何学（Coutureタグ）</strong>Coutureタグ確認が最重要。確認できれば強気価格で出品できる</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × ストライプ（Quindici以上）</strong>上位ライン確認済みなら安定して8,000円前後で動く</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>グレー × 無地・微光沢（ライン不問）</strong>一般ラインでも素材の良さが伝われば5,000円前後で動く</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%BC%E3%83%8B%E3%82%A2+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Zegna+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81+Couture" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+<div class="card tier-h" data-group="niche">
+  <div class="card-head">
+    <div class="brand-name">Celine（セリーヌ）</div>
+    <div class="price-badge">¥4,000〜7,500</div>
+  </div>
+  
+  <div class="retail-row"><span class="retail-label">新品参考価格</span><span class="retail-price">¥35,000〜55,000</span><span class="retail-note">※目安</span></div>
+  <div class="section-desc">「マカダム（トリオンフ）柄」のヴィンテージがトレンド。レトロ系古着女子やプレゼント用として手堅い需要がある。ヴィンテージトレンドが続く限りは安定して動くブランド。</div>
+  <div class="best3">
+    <div class="best3-title">🏆 売れ筋ベスト3</div>
+    <div class="best3-item"><span class="rank-num r1">1</span><div class="rank-text"><strong>ブラウン × マカダム（トリオンフ）総柄</strong>セリーヌの代名詞。ヴィンテージトレンドが需要を押し上げている</div></div>
+    <div class="best3-item"><span class="rank-num r2">2</span><div class="rank-text"><strong>ネイビー × マカダム柄（暗色版）</strong>ビジネス用途にも対応できる落ち着いた配色。男性の実需も拾う</div></div>
+    <div class="best3-item"><span class="rank-num r3">3</span><div class="rank-text"><strong>ベージュ × ロゴ・小紋（ヴィンテージ）</strong>ヴィンテージ感ある淡色は古着女子層のプレゼント需要に刺さる</div></div>
+  </div>
+  <div class="links">
+    <a class="link-btn" href="https://jp.mercari.com/search/?keyword=%E3%82%BB%E3%83%AA%E3%83%BC%E3%83%8C+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4&status=sold_out" target="_blank">📊 売切データ</a>
+    <a class="link-btn auth" href="https://www.google.com/search?q=Celine+%E3%83%8D%E3%82%AF%E3%82%BF%E3%82%A4+%E8%A3%8F%E9%9D%A2+%E3%82%BF%E3%82%B0+%E7%9C%9F%E6%AD%A3%E5%93%81" target="_blank">🔐 裏面タグ</a>
+  </div>
+</div>
+
+</div>
+
+<script>
+function filter(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  ['high','mid','niche'].forEach(function(g) {
+    var cards = document.querySelectorAll('[data-group="'+g+'"]');
+    var show = type === 'all' || type === g;
+    cards.forEach(function(c){ c.style.display = show ? '' : 'none'; });
+    document.getElementById('g-'+g).style.display = show ? '' : 'none';
+    document.getElementById('label-'+g).style.display = show ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
